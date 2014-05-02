@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.fniephaus.brightness</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>07FD9812-C0F5-4E42-8CB5-A3670C4109E7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E24C2B66-CD65-41FC-9C1B-1B779D8234DB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Fabio Niephaus</string>
+	<key>description</key>
+	<string>Adjust your display's brightness with Alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Display Brightness</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>brightness</string>
+				<key>script</key>
+				<string>python brightness.py "{query}"</string>
+				<key>title</key>
+				<string>Adjust your display's brightness</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>07FD9812-C0F5-4E42-8CB5-A3670C4109E7</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./screenbrightness {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>E24C2B66-CD65-41FC-9C1B-1B779D8234DB</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>07FD9812-C0F5-4E42-8CB5-A3670C4109E7</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>E24C2B66-CD65-41FC-9C1B-1B779D8234DB</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/fniephaus/alfred-brightness</string>
+</dict>
+</plist>
