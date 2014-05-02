@@ -61,7 +61,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./screenbrightness {query}</string>
+				<string>./brightness {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
