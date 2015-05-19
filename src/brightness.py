@@ -16,9 +16,12 @@ def main(wf):
 
     for i in range(0,120, 20):
         wf.add_item('%s%%' % i, arg='%s' % (i / 100.0), valid=True)
-
-    current_value = os.popen('./brightness').readline()
-    wf.add_item('Current brightness: %s%%' % int(100 * float(current_value)), valid=False)
+    
+    try:
+        current_value = os.popen('./brightness').readline()
+        wf.add_item('Current brightness: %s%%' % int(100 * float(current_value)), valid=False)
+    except ValueError:
+        wf.add_item('Cannot get current brightness')
 
     wf.send_feedback()
 
