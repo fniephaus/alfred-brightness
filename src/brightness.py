@@ -8,18 +8,20 @@ def main(wf):
     if user_input != '':
         try:
             if int(user_input) <= 100 and int(user_input) >= 0:
-                wf.add_item('%s%%' % user_input, arg='%s' % (int(user_input) / 100.0), valid=True)
+                wf.add_item('%s%%' % user_input,
+                            arg='%s' % (int(user_input) / 100.0), valid=True)
             else:
                 wf.add_item('Enter value between 0 and 100')
         except ValueError:
             wf.add_item('Enter value between 0 and 100')
 
-    for i in range(0,120, 20):
+    for i in range(0, 120, 20):
         wf.add_item('%s%%' % i, arg='%s' % (i / 100.0), valid=True)
-    
+
     try:
         current_value = os.popen('./brightness').readline()
-        wf.add_item('Current brightness: %s%%' % int(100 * float(current_value)), valid=False)
+        current = int(100 * float(current_value))
+        wf.add_item('Current brightness: %s%%' % current, valid=False)
     except ValueError:
         wf.add_item('Cannot get current brightness')
 
