@@ -2,6 +2,11 @@ import sys
 import os
 from workflow import Workflow
 
+# GitHub repo for self-updating
+GITHUB_UPDATE_CONF = {'github_slug': 'fniephaus/alfred-brightness'}
+# GitHub Issues
+HELP_URL = 'https://github.com/fniephaus/alfred-brightness/issues'
+
 
 def main(wf):
     user_input = wf.args[0]
@@ -29,5 +34,5 @@ def main(wf):
 
 
 if __name__ == '__main__':
-    wf = Workflow()
+    wf = Workflow(update_settings=GITHUB_UPDATE_CONF, help_url=HELP_URL)
     sys.exit(wf.run(main))
