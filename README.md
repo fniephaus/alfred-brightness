@@ -40,8 +40,8 @@ Minimum and maximum brightness values
 * Format: Number between 0 and 100
 * Defaults: `0` and `100`
 * Examples:
-    * `low` and `high`
-    * `dim` and `bright`
+    * `0` and `100` _(`0` turns the screen completely off)_
+    * `2` and `100` _(`2` is the lowest visible MacBook brightness)_
 
 Show minimum and maximum options?
 You can show the minimum option, maximum option, or both.
