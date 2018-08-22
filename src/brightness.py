@@ -7,36 +7,14 @@ GITHUB_UPDATE_CONF = {'github_slug': 'fniephaus/alfred-brightness'}
 # GitHub Issues
 HELP_URL = 'https://github.com/fniephaus/alfred-brightness/issues'
 
-# default configuration
-brightness_levels = '0,20,40,60,80,100'.split(',')
-show_min = False
-show_max = False
-value_min = 0
-value_max = 100
-keyword_min = 'min'
-keyword_max = 'max'
-
-# get configuration from the workflow configuration values
-if 'brightness_levels' in os.environ:
-    brightness_levels = os.environ['brightness_levels'].split(',')
-
-if 'show_min' in os.environ:
-    show_min = os.environ['show_min']
-
-if 'show_max' in os.environ:
-    show_max = os.environ['show_max']
-
-if 'value_min' in os.environ and os.environ['value_min'].isdigit() and int(os.environ['value_min']) >= 0:
-    value_min = int(os.environ['value_min'])
-
-if 'value_max' in os.environ and os.environ['value_max'].isdigit() and int(os.environ['value_max']) <= 100:
-    value_max = int(os.environ['value_max'])
-
-if 'keyword_min' in os.environ:
-    keyword_min = os.environ['keyword_min']
-
-if 'keyword_max' in os.environ:
-    keyword_max = os.environ['keyword_max']
+# configuration values
+brightness_levels = [int(x) for x in os.environ.get('brightness_levels', '0,20,40,60,80,100').split(',')]
+show_min = os.environ.get('show_min') == 'true'
+show_max = os.environ.get('show_max') == 'true'
+value_min = max(0, int(os.environ.get('value_min', 0)))
+value_max = min(100, int(os.environ.get('value_max', 100)))
+keyword_min = os.environ.get('keyword_min', 'min')
+keyword_max = os.environ.get('keyword_max', 'max')
 
 def main(wf):
     user_input = wf.args[0]
