@@ -20,11 +20,11 @@ def main(wf):
     user_input = wf.args[0]
     error = 'Enter value between 0 and 100'
 
-    if show_min == 'true':
-        error += (', ' if show_max == 'true' else ' or ') + '"%s"' % keyword_min
+    if show_min:
+        error += ' or "%s"' % keyword_min
 
-    if show_max == 'true':
-        error += (', or ' if show_min == 'true' else ' or ') + '"%s"' % keyword_max
+    if show_max:
+        error += ' or "%s"' % keyword_max
 
     if user_input != '' and user_input != keyword_min and user_input != keyword_max:
         try:
@@ -36,19 +36,19 @@ def main(wf):
         except ValueError:
             wf.add_item(error)
 
-    if show_min == 'true':
+    if show_min:
         wf.add_item('%s (%s%%)' % (keyword_min, value_min),
                     arg='%s' % (value_min / 100.0),
                     valid=True)
 
-    if show_max == 'true':
+    if show_max:
         wf.add_item('%s (%s%%)' % (keyword_max, value_max),
                     arg='%s' % (value_max / 100.0),
                     valid=True)
 
     for i in brightness_levels:
-        if i.isdigit():
-            wf.add_item('%s%%' % i, arg='%s' % (int(i) / 100.0), valid=True)
+        if i >= 0:
+            wf.add_item('%s%%' % i, arg='%s' % (i / 100.0), valid=True)
 
     try:
         current_value = os.popen('./brightness').readline()
